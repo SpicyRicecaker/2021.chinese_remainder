@@ -1,0 +1,85 @@
+\documentclass[index]{subfiles}
+
+\begin{document}
+\title{Chinese Remainder Theorem}
+\date{}
+\author{}
+\maketitle
+
+\newpage
+
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+\section{Introduction}
+
+The water bottle problem has been a problem that I've experienced multiple times throughout my life, ever since I was a child. I've seen it in multiple video games, as well as multiple math problems. Whenever I've come across these problems, I've admired the fact that just by ``messing around with it'', a solution that isn't obvious at first sight reveals itself. Through trial and error, these problems can always be solved. But there have always been times when I've tried those problems in the games and thought: would there be situations where the problem isn't solvable? What combinations of cups made the problems solvable? And, what if I didn't have an infinite amount of water to play around with in the first place? what would be the most optimal solutions?
+
+When I first came across the Chinese Remainder Theorem, I knew that I had to explore this topic further because it answered all my questions and more.
+
+\section{Initial Problem}
+The initial problem is as follows: An unknown amount of water poured over and over into one container with a 3l capacity gives 1l left over, and over another container with a 5l capacity leaves 4l leftover, finally, in a container with a 7l capacity gives 6l leftover. What is the original quality leftover?
+
+\section{Breaking Down the Theorem}
+The above problem can be expressed as a system of congruences.
+\begin{align*}
+    X\equiv 1\mod 3 \\
+    X\equiv 4\mod 5 \\
+    X\equiv 6\mod 7 \\
+\end{align*}
+Let's break down the notation of this system first. First of all, it should be noted that the \(\mod x\) stands for ``modulo'', and is nonstandard. In that, instead of reading from left to right like a standard operator operating on an operand, it's instead on the right. The \(1\) stands for the remainder of the problem, when divided by \(3\). It's similar to a regular mathematical expression \(\frac{x}{3}=y (remainder\ 1)\), except there is no \(y\), that value is ignored.
+
+The \(\equiv \) sign denotes that \(X\) is in the same congruence class as \(1\) when taken the modulo. What does it mean by congruence class? Well, think of all numbers that have a remainder of 1 when divided by 3. (khan academy). These are 1, 4, 7, 10, so on and so forth. When a number has the same remainder when divided by a number, they are in the same ``congruence class'' as each other. Therefore, the current equation that we have setup, while similar to a system of equations, because it has ``congruence'' statements along with modulo, is called a ``system of congruences'' instead of a system of equations.
+
+Now the way that we can solve this system of congruences is different from how we solve a system of equations. That is, we solve this with the Chinese Remainder theorem. The chinese remainder theorem states the following: Given a system of equations as defined as follows
+
+\begin{align*}
+    X\equiv a_1\mod n_1 \\
+    X\equiv a_2\mod n_2 \\
+    \ldots
+\end{align*}
+
+Where \(n_x\) are coprime (meaning they don't have any common factors other than 1), or the \(gcf(m1, m2, \ldots \). The Chinese Remainder Theorem states that there is always a solution, \(X\), which congruent to
+
+\begin{equation}
+    X\equiv (a_1N_1N_1^{-1} + a_2N_2N_2^{-1} + \cdots + a_{n}N_{n}N_{n}^{-1})\mod N 
+\end{equation} \cite{nesoacademyChineseRemainderTheorem2021}
+
+Or, with series, easier written as
+
+\begin{equation}
+    X\equiv \sum_{i=1}^{n}a_{i}N_{i}N_{i}^{-1}\mod N
+\end{equation}
+
+We find \(N\) by multiplying each individual \(n_i\) in the system of equations together,
+
+\begin{equation*}
+    N=n_1\times n_2 \times \cdots \times n_i
+\end{equation*}
+
+Wind \(N_i\) knowing that 
+\begin{equation*}
+   N_i=\frac{N}{n_i} 
+\end{equation*}
+
+Finally, to find \(N_i^{-1}\) (also called the inverse of the modulo), we state that 
+
+\begin{equation*}
+   N_i\cdot N_i^{-1}\equiv 1 \mod n_i 
+\end{equation*}
+
+Which we can find \(N_i^{-1}\) by solving the congruence statement using brute force guess and check, or by using the extended Euclid algorithm along with Bercloud's Identity. 
+
+Finally, after finding all the required values, we can then find \(X\) by plugging into the formula with known values of \(a_{i}, N_{i}, and\ N_{i}^{-1}\).
+
+\section{Breaking Down the Theorem}
+
+\newpage
+
+\raggedright{}
+\printbibliography[heading=bibintoc]
+
+\end{document}
