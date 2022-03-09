@@ -123,7 +123,7 @@ Where \(n_x\) are coprime (meaning they don't have any common factors other than
     X\equiv (a_1N_1N_1^{-1} + a_2N_2N_2^{-1} + \cdots + a_{n}N_{n}N_{n}^{-1})\mod N
 \end{equation*}~\parencite{nesoacademyChineseRemainderTheorem2021}
 
-We can slightly simplify the above expression and write it as a series, starting from \(1\) and ending at \(n\), the number of congruence statements we have inside the system. 
+We can slightly simplify the above expression and write it as a series, starting from \(1\) and ending at \(n\), the number of congruence statements we have inside the system.
 
 \begin{equation*}
     X\equiv \sum_{i=1}^{n}a_{i}N_{i}N_{i}^{-1}\mod N
@@ -162,27 +162,27 @@ Finally, after finding all the required values, we can then find \(X\) by pluggi
 Since \(N=n_1\times n_2\times\cdots\times n_n\), we simply multiply the capacities of the three containers together
 
 \begin{align*}
-    N&=3\cdot5\cdot7\\
-    &=\boxed{105}
+    N & =3\cdot5\cdot7 \\
+      & =\boxed{105}
 \end{align*}
 
 Next we'll find \(N_1\), \(N_2\), and \(N_3\) by dividing the \(N\) we just found by each \(n_i\)
 
 \begin{align*}
-    N_1&=\frac{N}{n_1}\\
-    &=\frac{105}{3}\\
-    &=\boxed{35}\\
-    N_2&=\frac{N}{n_2}\\
-    &=\frac{105}{5}\\
-    &=\boxed{21}\\
-    N_3&=\frac{N}{n_3}\\
-    &=\frac{105}{7}\\
-    &=\boxed{15}\\
+    N_1 & =\frac{N}{n_1} \\
+        & =\frac{105}{3} \\
+        & =\boxed{35}    \\
+    N_2 & =\frac{N}{n_2} \\
+        & =\frac{105}{5} \\
+        & =\boxed{21}    \\
+    N_3 & =\frac{N}{n_3} \\
+        & =\frac{105}{7} \\
+        & =\boxed{15}    \\
 \end{align*}
 
 \subsection{Calculating the inverse modulo}
 
-Then here's where the hard part starts: we need to find \(N_1^{-1}\), \(N_2^{-2}\), and \(N_3^{-3}\), known as the modular multiplicative inverse, for each congruence statement, given that 
+Then here's where the hard part starts: we need to find \(N_1^{-1}\), \(N_2^{-2}\), and \(N_3^{-3}\), known as the modular multiplicative inverse, for each congruence statement, given that
 
 \begin{equation*}
     N_i\cdot N_i^{-1}=1\mod n_i
@@ -290,26 +290,26 @@ Now to summarize what we have so far, we know that as \(\gcd(A,B)\) evenly divid
 But then,
 
 \begin{align*}
-    \gcd(A,B)   & \leq\gcd(B,C)
+    \gcd(A,B)                          & \leq\gcd(B,C)
     \intertext{since by the definition of \(\gcd\), \(\gcd(B,C)\) is the \textbf{greatest} factor of both \(B,C\)}
-    \gcd(B,C)   & \leq\gcd(A,B)
+    \gcd(B,C)                          & \leq\gcd(A,B)
     \intertext{since by the definition of \(\gcd\), \(\gcd(A,B)\) is the \textbf{greatest} factor of both \(A,B\). Then by a transitive property of sorts,}
-    \gcd(A,B)   & =\gcd(B,C)
+    \gcd(A,B)                          & =\gcd(B,C)
     \intertext{and by definition the difference \(C=A-B\), so}
-    \gcd(A,B)   & =\gcd(B,A-B)
+    \gcd(A,B)                          & =\gcd(B,A-B)
     \intertext{From there, it's a simple matter of rearranging and simplifying terms.}
-    \gcd(B,A-B) & =\gcd(A-B,B)
+    \gcd(B,A-B)                        & =\gcd(A-B,B)
     \intertext{Then, we can apply recursion to the rule. If we think of \(A-B\) as the new \(A\) in \(\gcd(A,B)=\gcd(A-B,B)\), then it follows that}
-    \gcd(A,B)=\gcd(A-B,B)=\gcd(A-2B,B)&=\gcd(A-3B,B)\ldots\gcd(A-BQ,B)
+    \gcd(A,B)=\gcd(A-B,B)=\gcd(A-2B,B) & =\gcd(A-3B,B)\ldots\gcd(A-BQ,B)
     \intertext{But from euclidean division, we know that}
-    A           & =BQ+R         \\
-    R           & =A-BQ
+    A                                  & =BQ+R                           \\
+    R                                  & =A-BQ
     \intertext{Thus, substituting that into the recursed result, we get}
-    \gcd(A,B)   & =\gcd(A-BQ,B) \\
-    \gcd(A,B)   & =\gcd(R,B)
+    \gcd(A,B)                          & =\gcd(A-BQ,B)                   \\
+    \gcd(A,B)                          & =\gcd(R,B)
 \end{align*}
 
-As an extension to the above Eulid's Algorithm is Bézout's Identity, a thoerem which assets that given two integers with a common factor \(D\) (i.e. \(A,B\in\mathbb{Z}\) and \(\gcd(A,B)=D\)), their relationship can be expressed in the form 
+As an extension to the above Eulid's Algorithm is Bézout's Identity, a thoerem which assets that given two integers with a common factor \(D\) (i.e. \(A,B\in\mathbb{Z}\) and \(\gcd(A,B)=D\)), their relationship can be expressed in the form
 
 \begin{equation*}
     AX+BY=D
@@ -317,7 +317,7 @@ As an extension to the above Eulid's Algorithm is Bézout's Identity, a thoerem 
 
 Where \(X,Y\in\mathbb{Z}\).
 
-This is especially useful if we wish to calculate the multiplicative inverse \(N^{-1}\) as required by the Chinese Remainder Theorem, since if the \(\gcd(A,B)=1\), and \(A\) and \(B\) are coprime, then 
+This is especially useful if we wish to calculate the multiplicative inverse \(N^{-1}\) as required by the Chinese Remainder Theorem, since if the \(\gcd(A,B)=1\), and \(A\) and \(B\) are coprime, then
 
 \begin{equation*}
     AX+BY=1
@@ -330,10 +330,74 @@ The coefficients \(A\) and \(B\) can be found using Euclid's Extended algorihtm,
 To return back to where we left off, the Chinese Remainder Theorem by definition requires the quotients of the system of congruences (\(n_1\), \(n_2\), and \(n_3\)) to be coprime. For this system of congruences that we formed to represent the water battle problem, this is the case, since \(\gcd(3,5)=\gcd(5,7)=\gcd(3,7)=1\), it follows that for any system of congruence in this problem, \(\gcd(N_i,n_i)=1\). We can also validate this by taking the modified congruence statement that includes the modular multiplicative inverse
 
 \begin{equation*}
-    35\cdot
+    35\cdot N_1^{-1}\equiv1\mod3
 \end{equation*}
 
-and seeing that \(\gcd()\)
+and seeing that \(\gcd(35,3)\) is in fact 1. Therefore, by Bézout's indentity, we can rewrite this linear congruence as the following equation
+
+\begin{equation*}
+    35\cdot N_1^{-1}=1-3y,\ y\in\mathbb{Z}
+\end{equation*}
+
+This also makes sense intuitively by the definition of the modulo, since some multiple of 3 combined with a remainder of 1 should equal the left hand side of the congruence statement. Then, if we add \(3y\) to both sides, we get it in the standard form
+
+\begin{equation*}
+    35\cdot N_1^{-1}+3y=1
+\end{equation*}
+
+Now we use Euclid's Extended Algorithm to determine Bézout's coefficients (which in this case, are \(N_1^{-1}\) and \(Y\), which would allow us to get the value of the modular multiplicative inverse).
+
+To start, we put \(35\) and \(3\) in Euclidean Division form, or in the form of \(A=BQ+R\)
+
+\begin{align*}
+    35                  & =3\cdot11+2
+    \intertext{As proven earlier, we use the fact that \(\gcd(A,B)=\gcd(B,R)\) to ``extend'' the value of \(A\)}
+    3                   & =2\cdot1+1
+    \intertext{This is now fully simplified, as we reached a remainder of 1, which divides all integers, though if we didn't reach a remainder of 1 we would continue until we reached 1. We can rearrange the 2 equations to be in terms of the remainders}
+    35=3\cdot11+2\ \ \  & \rightarrow\ \ \ 2=35-3\cdot11 \\
+    3=2\cdot1+1\ \ \    & \rightarrow\ \ \ 1=3-2\cdot1
+    \intertext{Next, with the new rearranged equations on the right, we can use a method called \textit{backwards substitution}, where we plug the remainderes back into the main equations, starting from \(1\) and working backwards, until we eventually reach the form of Bézout's identity, \(1=AX+BY\)}
+    1                   & =3-2\cdot1                     \\
+                        & =3-(35-3\cdot11)               \\
+                        & =-35+3+3\cdot11                \\
+                        & =35(-1)+3(12)
+\end{align*}
+
+Thus, through Euclid's Extended Algorithm, we have found that Bézout's coefficients are \(-1\) and \(12\), and as \(35(-1)\) corresponds to \(35\cdot N_1^{-1}\) as defined earlier, \(N_1^{-1}=1\).
+
+\begin{align*}
+    \intertext{We can repeat this same exact process with \(N_2^{-1}\)}
+    N_2\cdot N_2^{-1}   & \equiv1\mod n_2        \\
+    N_2                 & =21                    \\
+    n_2                 & =5
+    \intertext{There isn't much in the way of using Euclid's algorithm, as the expansion is only one equation.}
+    21\cdot N_2^{-1}    & =1-5y,\ y\in\mathbb{Z} \\
+    21\cdot N_2^{-1}+5y & =1                     \\
+    21                  & =5\cdot4+1             \\
+    21(1)-5(4)          & =1                     \\
+    N_2^{-1}            & =\boxed{1}
+    \intertext{And finally with \(N_3^{-1}\)}
+    N_3\cdot N_3^{-1}   & \equiv1\mod n_3        \\
+    15\cdot N_3^{-1}    & \equiv1\mod 7          \\
+    15\cdot N_3^{-1}    & =1-7y,\ y\in\mathbb{Z} \\
+    15\cdot N_3^{-1}+7y & =1                     \\
+    15                  & =7\cdot2+1             \\
+    1                   & =15(1)-7(2)            \\
+    N_3^{-1}            & =\boxed{1}
+\end{align*}
+
+Finally, we can plug in our calculated values of \(N\), \(N_i\), and \(N_i^{-1}\) along with the given values of \(a_i\) back into the original series for Chinese Remainder Theorem.
+
+\begin{align*}
+    X         & \equiv\sum_{i=1}{n}a_{i}N_{i}N_i^{-1}\mod N               \\
+    X         & \equiv a_1N_1N_1^{-1}+a_2N_2N_2^{-1}+a_3N_3N_3^{-1}\mod N \\
+    X         & \equiv(1)(35)(-1)+(4)(21)(1)+(6)(15)(1)\mod 105           \\
+    X         & \equiv139\mod 105                                         \\
+    \intertext{To get the smallest unique positive integer solution, we take \(139\mod105\), yielding}
+    \aboxed{X & \equiv34\mod 105}
+\end{align*}
+
+This amount of water, \(34L\), is the lowest positive integer number that satisfies the system of congruences, and thus the smallest amount of water that will leave \(1L\) leftover when poured into the \(3L\) container, \(4L\) leftover when poured into the \(5L\) container, and \(6L\) leftover when poured into the \(7L\) container.
 
 \newpage
 
